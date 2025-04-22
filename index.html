@@ -21,63 +21,53 @@
 
   <section class="hero">
     <div class="container">
-      <h2>Stylish Shirts for you</h2>
+      <h2>Stylish Shirts for You</h2>
       <p>Find your perfect look today</p>
       <a href="#products" class="btn">Shop Now</a>
     </div>
   </section>
   
+  <!-- Filter Buttons -->
   <div class="filter-buttons">
     <button onclick="filterByGender('all')">All</button>
     <button onclick="filterByGender('men')">Men</button>
     <button onclick="filterByGender('women')">Women</button>
- </div>
-
-<div class="product-grid">
-  <div class="product" data-gender="men">
-    <img src="images/white-shirt.jpg" alt="Classic White Shirt" />
-    <h4>Classic White Shirt</h4>
-    <p>$29.99</p>
-    <button onclick="addToCart('Classic White Shirt', 29.99)">Add to Cart</button>
-  </div>
-  <div class="product" data-gender="men">
-    <img src="images/denim-shirt.jpg" alt="Denim Button-Down" />
-    <h4>Denim Button-Down</h4>
-    <p>$34.99</p>
-    <button onclick="addToCart('Denim Button-Down', 34.99)">Add to Cart</button>
-  </div>
-  <div class="product" data-gender="women">
-    <img src="images/striped-shirt.jpg" alt="Striped Casual Shirt" />
-    <h4>Striped Casual Shirt</h4>
-    <p>$27.50</p>
-    <button onclick="addToCart('Striped Casual Shirt', 27.50)">Add to Cart</button>
   </div>
 
+  <!-- Product Grid Section -->
   <section class="products" id="products">
     <div class="container">
       <h3>Our Shirts</h3>
       <div class="search-box">
         <input type="text" id="searchBox" placeholder="Search shirts..." onkeyup="filterShirts()" />
       </div>
+
       <div class="product-grid">
-        <div class="product">
+        <!-- Men Shirt -->
+        <div class="product" data-gender="men">
           <img src="images/white-shirt.jpg" alt="Classic White Shirt" />
           <h4>Classic White Shirt</h4>
           <p>$29.99</p>
           <button onclick="addToCart('Classic White Shirt', 29.99)">Add to Cart</button>
         </div>
-        <div class="product">
+        
+        <!-- Men Shirt -->
+        <div class="product" data-gender="men">
           <img src="images/denim-shirt.jpg" alt="Denim Button-Down" />
           <h4>Denim Button-Down</h4>
           <p>$34.99</p>
           <button onclick="addToCart('Denim Button-Down', 34.99)">Add to Cart</button>
         </div>
-        <div class="product">
+
+        <!-- Women Shirt -->
+        <div class="product" data-gender="women">
           <img src="images/striped-shirt.jpg" alt="Striped Casual Shirt" />
           <h4>Striped Casual Shirt</h4>
           <p>$27.50</p>
           <button onclick="addToCart('Striped Casual Shirt', 27.50)">Add to Cart</button>
         </div>
+
+        <!-- Add more products as needed -->
       </div>
     </div>
   </section>
@@ -89,5 +79,37 @@
   </footer>
 
   <script src="cart.js"></script>
+
+  <script>
+    function filterByGender(gender) {
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        if (gender === 'all') {
+          product.style.display = 'block'; // Show all products
+        } else {
+          const productGender = product.getAttribute('data-gender');
+          product.style.display = productGender === gender ? 'block' : 'none'; // Show filtered products
+        }
+      });
+    }
+
+    function filterShirts() {
+      const searchQuery = document.getElementById('searchBox').value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const title = product.querySelector('h4').textContent.toLowerCase();
+        if (title.includes(searchQuery)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function addToCart(itemName, itemPrice) {
+      console.log(`Added ${itemName} for $${itemPrice} to cart.`);
+      // You can later implement cart functionality here
+    }
+  </script>
 </body>
 </html>
