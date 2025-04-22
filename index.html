@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Men's Shirt Shop</title>
+  <title>Nattanai Shop</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -21,11 +21,37 @@
 
   <section class="hero">
     <div class="container">
-      <h2>Stylish Shirts for Modern Men</h2>
+      <h2>Stylish Shirts for you</h2>
       <p>Find your perfect look today</p>
       <a href="#products" class="btn">Shop Now</a>
     </div>
   </section>
+  
+  <div class="filter-buttons">
+    <button onclick="filterByGender('all')">All</button>
+    <button onclick="filterByGender('men')">Men</button>
+    <button onclick="filterByGender('women')">Women</button>
+ </div>
+
+<div class="product-grid">
+  <div class="product" data-gender="men">
+    <img src="images/white-shirt.jpg" alt="Classic White Shirt" />
+    <h4>Classic White Shirt</h4>
+    <p>$29.99</p>
+    <button onclick="addToCart('Classic White Shirt', 29.99)">Add to Cart</button>
+  </div>
+  <div class="product" data-gender="men">
+    <img src="images/denim-shirt.jpg" alt="Denim Button-Down" />
+    <h4>Denim Button-Down</h4>
+    <p>$34.99</p>
+    <button onclick="addToCart('Denim Button-Down', 34.99)">Add to Cart</button>
+  </div>
+  <div class="product" data-gender="women">
+    <img src="images/striped-shirt.jpg" alt="Striped Casual Shirt" />
+    <h4>Striped Casual Shirt</h4>
+    <p>$27.50</p>
+    <button onclick="addToCart('Striped Casual Shirt', 27.50)">Add to Cart</button>
+  </div>
 
   <section class="products" id="products">
     <div class="container">
