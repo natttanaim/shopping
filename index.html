@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css" />
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,32 +22,35 @@
   <section class="hero">
     <div class="container">
       <h2>Stylish Shirts for Modern Men</h2>
-      <p>Discover our latest collection now.</p>
-      <a href="#" class="btn">Shop Now</a>
+      <p>Find your perfect look today</p>
+      <a href="#products" class="btn">Shop Now</a>
     </div>
   </section>
 
-  <section class="products">
+  <section class="products" id="products">
     <div class="container">
-      <h3>Featured Shirts</h3>
+      <h3>Our Shirts</h3>
+      <div class="search-box">
+        <input type="text" id="searchBox" placeholder="Search shirts..." onkeyup="filterShirts()" />
+      </div>
       <div class="product-grid">
         <div class="product">
-          <img src="https://via.placeholder.com/200x250" alt="Shirt 1" />
+          <img src="images/white-shirt.jpg" alt="Classic White Shirt" />
           <h4>Classic White Shirt</h4>
           <p>$29.99</p>
-          <button>Add to Cart</button>
+          <button onclick="addToCart('Classic White Shirt', 29.99)">Add to Cart</button>
         </div>
         <div class="product">
-          <img src="https://via.placeholder.com/200x250" alt="Shirt 2" />
+          <img src="images/denim-shirt.jpg" alt="Denim Button-Down" />
           <h4>Denim Button-Down</h4>
           <p>$34.99</p>
-          <button>Add to Cart</button>
+          <button onclick="addToCart('Denim Button-Down', 34.99)">Add to Cart</button>
         </div>
         <div class="product">
-          <img src="https://via.placeholder.com/200x250" alt="Shirt 3" />
+          <img src="images/striped-shirt.jpg" alt="Striped Casual Shirt" />
           <h4>Striped Casual Shirt</h4>
           <p>$27.50</p>
-          <button>Add to Cart</button>
+          <button onclick="addToCart('Striped Casual Shirt', 27.50)">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -59,5 +61,7 @@
       <p>&copy; 2025 ShirtStyle. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="cart.js"></script>
 </body>
 </html>
